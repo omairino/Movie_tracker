@@ -9,6 +9,7 @@ class Movie(models.Model):
     release_date = models.TextField()
     trailer_url = models.TextField()
     image_path = models.TextField()
+    backdrop_path = models.TextField()
     language = models.CharField(max_length=20)
     vote_count = models.IntegerField()
     vote_average = models.FloatField()
