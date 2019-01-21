@@ -1,20 +1,29 @@
+<!-- Swiper -->
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <div id="one" (click)="image_details(index)" class="swiper-slide button" [ngStyle]="{'background-image':'url('+item.image_path+')'}"
+      *ngFor="let item of movies;let index = index"></div>
 
-  <!-- Swiper -->
-  <div class="swiper-container" >
-    <div class="swiper-wrapper">
-      <div id = "one"(click) ="image_details(index)"class="swiper-slide button" [ngStyle]="{'background-image':'url('+item.image_path+')'}" *ngFor = "let item of movies;let index = index"></div>
-      
-    </div>
-    <div class="swiper-pagination"></div>
-  </div> 
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
 <div id="modal-container">
   <div class="modal-background">
-      <h2>{{movie_name}}</h2>
-      <p>{{movie_description}}</p>
-    </div>
-  </div>
+    <div class="row container-fluid" role="alert">
+      <div class="col-md-4">
+        <img class="img-fluid" src={{movie_image}}>
+      </div>
+      
+      <div class = "offset-md-1 col-md-6">
+        <div>
+          <h2>{{movie_name}}</h2>
+          <hr>
+          <p>{{movie_description}}</p>
+          <label><b>Release Date</b> :</label> <b> {{movie_release_date}}</b>
+          <br>
+          <label><b>Language</b> :</label> <b> {{movie_language}}</b>
 
-<div class="content">
-</div>
-
-  
+        </div>
+      </div>
+     </div> </div> </div> <div class="content">
+      </div>

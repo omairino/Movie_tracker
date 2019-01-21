@@ -18,6 +18,9 @@ export class AppComponent implements AfterViewInit,OnInit {
   options = {};
   movie_name = "template"
   movie_description = "template"
+  movie_image = "template"
+  movie_release_date = "10/10/10"
+  movie_language = "english"
   details_page:boolean = false;
   Swiper:S = null
   movies:MoviesModule[] = []
@@ -61,6 +64,10 @@ export class AppComponent implements AfterViewInit,OnInit {
   {
     this.movie_name = this.movies[index].title
     this.movie_description = this.movies[index].overview
+    this.movie_image = this.movies[index].image_path
+    this.movie_language = this.movies[index].language
+    console.log(this.movies[index].release_date)
+    this.movie_release_date = this.movies[index].release_date
     $('#modal-container').removeAttr('class').addClass("one");
     $('body').addClass('modal-active');
     console.log("entered here")

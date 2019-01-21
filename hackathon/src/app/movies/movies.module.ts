@@ -22,6 +22,7 @@ export class MoviesModule {
     this.overview = overview ;
     this.trailer_url = trailer_url; 
     this.image_path = image_path; 
+    this.release_date = release_date;
     this.language = language; 
     this.vote_count = vote_count; 
     this.vote_average = vote_average;  

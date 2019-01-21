@@ -14,13 +14,14 @@ export class MovieService {
     }
     getProducts(){
       var temp = []
-      this.http.get("http://192.168.43.215:8000/").subscribe((response)=>{
+      this.http.get("http://127.0.0.1:8000/").subscribe((response)=>{
         var items = []
         items = response.json();
        
         for(let movie of response.json()){
           movie = movie.fields
-         const movie_to_add = new MoviesModule(movie.title,movie.overview,movie.release_date,movie.trailer_url,movie.image_path,movie.language,movie.vote_count,movie.vote_average,movie.backdrop_path)
+          console.log(movie.release_date)
+         const movie_to_add = new MoviesModule(movie.title,movie.overview ,movie.release_date,movie.trailer_url,movie.image_path,movie.language,movie.vote_count,movie.vote_average,movie.backdrop_path)
          temp.push(movie_to_add)
         }
         this.movieDetails = temp

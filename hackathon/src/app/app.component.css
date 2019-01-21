@@ -217,6 +217,8 @@ body {
   #modal-container .modal-background {
     display: table-cell;
     background: rgba(255, 255, 255, 1);
+    background-repeat: no-repeat;
+    background-size:cover;
   }
   #modal-container .modal-background .modal {
     background: white;
@@ -585,4 +587,6 @@ body {
       transform: scale(0);
     }
   }
-  
+  .jumbotron{
+    opacity: 0.5;
+  }
