@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/materialize/css/materialize.min.css";
+@import "./assets/swiper-4.4.6/dist/css/swiper.min.css";
+
+body
+{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
