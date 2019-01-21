@@ -7,6 +7,9 @@ verify_ssl = true
 
 [packages]
 tmdbv3api = "*"
+django = "*"
+requests = "*"
+tmdb3api = "*"
 
 [requires]
 python_version = "3.6"
