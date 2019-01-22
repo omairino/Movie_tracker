@@ -33,7 +33,13 @@ body {
   html.modal-active, body.modal-active {
     overflow: hidden;
   }
+  .cinema_qr{
+      /* padding:10px;  */
+      position: absolute;
+      bottom: 0;
+      right: 0;
   
+  }
   #modal-container {
     position: fixed;
     display: table;

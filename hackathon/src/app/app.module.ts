@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { MovieitemComponent } from './movieitem/movieitem.component';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { HttpModule } from '@angular/http';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+
 
 @NgModule({
   declarations: [
@@ -14,7 +16,8 @@ import { HttpModule } from '@angular/http';
   ],
   imports: [
     BrowserModule
-    ,HttpModule 
+    ,HttpModule
+    ,NgxQRCodeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

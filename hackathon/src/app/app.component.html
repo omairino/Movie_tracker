@@ -22,7 +22,10 @@
           <label><b>Release Date</b> :</label> <b> {{movie_release_date}}</b>
           <br>
           <label><b>Language</b> :</label> <b> {{movie_language}}</b>
-
+          <div class = "cinema_qr">
+            <label><b>scan if you want to reserve</b></label>
+            <ngx-qrcode qrc-element-type="url" [qrc-value]="ngxQrcode2" ></ngx-qrcode>
+        </div>
         </div>
       </div>
      </div> </div> </div> <div class="content">

@@ -23,14 +23,65 @@ export class AppComponent implements AfterViewInit,OnInit {
   movie_language = "english"
   details_page:boolean = false;
   Swiper:S = null
-  movies:MoviesModule[] = []
+  movies:MoviesModule[] = [];
+  elementType : 'url' = null
+  value = null
+  ngxQrcode2 = null;
   constructor(private movieList:MovieService){}
+  socket;
+  num
+  setServerSocket()
+  {
+    
+    this.socket = new WebSocket('ws://127.0.0.1:1234');
+    console.log("aa")
+    this.socket.onopen = () => {
+    console.log('WebSockets connection created.');
+    this.socket.send("aa");
+    this.socket.send("aa");
+    this.socket.send("aa");
+    this.socket.send("aa");
+
+     };
   
+     this.socket.onmessage = (event) => {
+       console.log("data from socket:" + event.data);
+       this.num = event.data;
+       console.log(event.data)
+       if(event.data == "127.0.0.1 - -1")
+       {
+         console.log("back")
+        this.Swiper.slidePrev()
+        
+      }
+      else if (event.data == "127.0.0.1 - 1")
+      {
+        console.log("hi")
+        this.Swiper.slideNext()
+
+       }
+      else if (event.data == "127.0.0.1 - 0")
+      {
+        this.image_details(this.Swiper.activeIndex)
+      }
+      else if (event.data == "127.0.0.1 - -0")
+      {
+        $('#modal-container').addClass('out');
+        $('body').removeClass('modal-active');
+        
+      }
+     };
+  
+     if (this.socket.readyState == WebSocket.OPEN) {
+       this.socket.onopen(null);
+     }
+    
+    }
   ngOnInit(): void {
     this.movies = this.movieList.getProducts();
       this.movieList.movieChanged.subscribe((movies:MoviesModule[])=>{
       this.movies=movies;
-     
+      this.setServerSocket();
        
     
     })
@@ -68,9 +119,10 @@ export class AppComponent implements AfterViewInit,OnInit {
     this.movie_language = this.movies[index].language
     console.log(this.movies[index].release_date)
     this.movie_release_date = this.movies[index].release_date
+    this.ngxQrcode2 = this.movies[index].reserve_path
     $('#modal-container').removeAttr('class').addClass("one");
     $('body').addClass('modal-active');
     console.log("entered here")
-  }
+  } 
   title = 'hackathon';
 }
